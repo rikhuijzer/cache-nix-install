@@ -8,6 +8,7 @@ var yourscript = exec('sh restore.sh',
         console.log(stderr);
         if (error !== null) {
             console.log(`exec error: ${error}`);
+            process.exit(1);
         }
     });
 
