@@ -1,5 +1,5 @@
 name: 'Install and cache Nix'
-description: 'Installs packages via the Nix package manager and caches the results'
+description: 'Installs packages via the Nix package manager and caches the results.'
 author: 'Rik Huijzer'
 
 inputs:
@@ -19,3 +19,4 @@ runs:
               nix_path: 'nixpkgs=channel:${{ inputs.nix_version }}'
         - name: Install via Nix
           run: nix-env --install --file ${{ inputs.nix_file }}
+          shell: bash
