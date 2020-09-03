@@ -27,7 +27,7 @@ runs:
           shell: bash
           env: 
             INPUT_SKIP_ADDING_NIXPKGS_CHANNEL: "false"
-            INPUT_NIX_PATH="nixpkgs=channel:${{ inputs.nix_version }}"
+            INPUT_NIX_PATH: "nixpkgs=channel:${{ inputs.nix_version }}"
           
         - name: Install via Nix
           run: nix-env --install --file ${{ inputs.nix_file }}
