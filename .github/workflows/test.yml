@@ -14,4 +14,4 @@ jobs:
               with:
                 nix_file: 'test/simple.nix'
             - name: Test whether Ranger is installed
-              run: which ranger2
+              run: which ranger
