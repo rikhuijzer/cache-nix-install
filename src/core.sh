@@ -2,10 +2,18 @@
 
 CALLER="$1"
 
-if [ "$CALLER" == "main" ]; then
+function main {
     echo Came from main
-elif [ "$CALLER" == "post" ]; then
+}
+
+function post {
     echo Came from post
+}
+
+if [ "$CALLER" == "main" ]; then
+    main
+elif [ "$CALLER" == "post" ]; then
+    post
 else
     echo "No argument given"
     exit 1
