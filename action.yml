@@ -22,7 +22,6 @@ runs:
         - name: Install Nix
           # nix_path: 'nixpkgs=channel:${{ inputs.nix_version }}'
           run: |
-              export INPUT_SKIP_ADDING_NIXPKGS_CHANNEL="false"
               export INPUT_NIX_PATH="nixpkgs=channel:${{ inputs.nix_version }}"
               git clone --branch v10 https://github.com/cachix/install-nix-action /tmp/cachix
               nodejs /tmp/cachix/lib/main.js
