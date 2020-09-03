@@ -14,4 +14,3 @@ inputs:
 runs:
     using: 'node12'
     main: 'src/restore.js'
-    post: 'echo post'
