@@ -1,3 +1,3 @@
-const utils = require('./utils.js')
+const utils = require('./src/utils.js')
 
 utils.run_script('./src/restore.sh')
