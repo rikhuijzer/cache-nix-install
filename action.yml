@@ -13,4 +13,4 @@ inputs:
 # For available options, see https://github.com/actions/runner/blob/main/src/Runner.Worker/action_yaml.json.
 runs:
     using: 'node12'
-    main: 'src/restore.js'
+    main: 'src/restore.js main'

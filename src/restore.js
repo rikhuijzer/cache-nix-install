@@ -1,8 +1,6 @@
 const { exec } = require('child_process');
 
-console.log('Starting')
-
-var yourscript = exec('./src/restore.sh',
+exec('./src/restore.sh',
     (error, stdout, stderr) => {
         console.log(stdout);
         console.log(stderr);
@@ -10,6 +8,6 @@ var yourscript = exec('./src/restore.sh',
             console.log(`exec error: ${error}`);
             process.exit(1);
         }
-    });
+});
 
-console.log('Done')
+console.log('from: ' + process.argv0)
