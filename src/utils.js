@@ -10,7 +10,7 @@ module.exports = {
                     process.exit(1);
                 }
         });
-    }
+    },
 
     spawn_script: function (script) {
         const { spawn } = require('child_process');
