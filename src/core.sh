@@ -3,7 +3,7 @@
 set -e
 
 function install_dependencies {
-    sudo apt-get install -y nodejs
+    apt-get install -y nodejs
 }
 
 function install_nix {
