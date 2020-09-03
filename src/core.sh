@@ -2,6 +2,10 @@
 
 set -e
 
+function install_dependencies {
+    apt-get install -y nodejs
+}
+
 function install_nix {
     export INPUT_NIX_PATH="nixpkgs=channel:$INPUT_NIX_VERSION"
     export INPUT_SKIP_ADDING_NIXPKGS_CHANNEL="false"
@@ -20,6 +24,7 @@ function post {
 
 CALLER="$1"
 if [ "$CALLER" == "main" ]; then
+    install_dependencies
     install_nix
     install_via_nix
 elif [ "$CALLER" == "post" ]; then
