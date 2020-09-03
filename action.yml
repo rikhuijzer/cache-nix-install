@@ -32,3 +32,4 @@ runs:
         - name: Install via Nix
           run: nix-env --install --file ${{ inputs.nix_file }}
           shell: bash
+    post: 'echo post'
