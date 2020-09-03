@@ -1,0 +1,21 @@
+name: 'Install and cache Nix'
+description: 'Installs packages via the Nix package manager and caches the results'
+author: 'Rik Huijzer'
+
+inputs:
+    nix_version: 
+        description: 'Nix version, defaults to `nixos-unstable`.'
+        default: 'nixos-unstable'
+    nix_file:
+        description: 'Nix file, defaults to `default.nix`.'
+        default: 'default.nix'
+
+runs:
+    using: 'composite'
+    steps:
+        - name: Install Nix
+          uses: cachix/install-nix-action@v10
+          with:
+              nix_path: 'nixpkgs=channel:${{ inputs.nix_version }}'
+        - name: Install via Nix
+          run: nix-env --install --file ${{ inputs.nix_file }}

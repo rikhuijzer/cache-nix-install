@@ -1,0 +1,15 @@
+name: test
+
+jobs:
+    simple:
+        name: Install only Ranger
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Install and cache Nix packages 
+              uses: ./
+              with:
+                default_nix: 'test/simple.nix'
+            - name: Test whether Ranger is installed
+              run: which ranger
