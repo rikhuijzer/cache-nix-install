@@ -28,6 +28,9 @@ runs:
               nodejs /tmp/cachix/lib/main.js
           shell: bash
           
+        - run: nix-shell -p nix-info --run "nix-info -m"
+          shell: bash
+
         - name: Install via Nix
           run: nix-env --install --file ${{ inputs.nix_file }}
           shell: bash
