@@ -1,9 +1,14 @@
 #!/bin/bash
 
+set -e
+
 CALLER="$1"
 
+printenv
+
 function main {
-    echo Came from main
+    git clone --branch v10 https://github.com/cachix/install-nix-action /tmp/cachix
+    nodejs /tmp/cachix/lib/main.js
 }
 
 function post {
