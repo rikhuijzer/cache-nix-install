@@ -3,7 +3,7 @@
 set -e
 
 function install_nix {
-    export INPUT_NIX_PATH="nixpkgs=channel:${{ INPUT_NIX_VERSION }}"
+    export INPUT_NIX_PATH="nixpkgs=channel:$INPUT_NIX_VERSION"
     export INPUT_SKIP_ADDING_NIXPKGS_CHANNEL="false"
 
     git clone --branch v10 https://github.com/cachix/install-nix-action /tmp/cachix
@@ -11,7 +11,7 @@ function install_nix {
 }
 
 function install_via_nix {
-    nix-env --install --file ${{ INPUT_NIX_FILE }}
+    nix-env --install --file "$INPUT_NIX_FILE"
 }
 
 function post {
