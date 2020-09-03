@@ -12,6 +12,6 @@ jobs:
             - name: Install and cache Nix packages 
               uses: ./
               with:
-                default_nix: 'test/simple.nix'
+                nix_file: 'test/simple.nix'
             - name: Test whether Ranger is installed
               run: which ranger
