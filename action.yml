@@ -18,6 +18,8 @@ runs:
         - name: Install Nix package manager
           run: ./src/install_nix.sh
           shell: bash
+          env:
+              INPUT_NIX_VERSION: ${{ inputs.nix_version }}
         - name: Install via Nix
           run: ./src/install_via_nix_or_cache.sh
           shell: bash
