@@ -1,2 +1,2 @@
 const utils = require('./utils.js')
-utils.run_script('./src/core.sh post')
+utils.run_script('./src/parent.sh post')
