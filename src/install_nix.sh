@@ -8,6 +8,11 @@ echo ""
 echo "running intall_nix.sh"
 echo ""
 
+if [ -d "$/nix" ]; then
+    echo Nix folder exists. Assuming it was restored from cache.
+    exit 0
+fi
+
 # Configure Nix
 add_config() {
   echo "$1" | sudo tee -a /tmp/nix.conf >/dev/null
