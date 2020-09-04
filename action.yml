@@ -10,7 +10,8 @@ inputs:
         description: 'Nix file, defaults to `default.nix`.'
         default: 'default.nix'
 
-# For available options, see https://github.com/actions/runner/blob/main/src/Runner.Worker/action_yaml.json.
+# For available options, see 
+# https://github.com/actions/runner/blob/main/src/Runner.Worker/action_yaml.json.
 runs:
     using: 'node12'
     main: 'src/main.js'
