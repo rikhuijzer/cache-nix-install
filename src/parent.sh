@@ -8,8 +8,8 @@ function post {
 
 CALLER="$1"
 if [ "$CALLER" == "main" ]; then
-    ./prepare.sh
-    ./core.sh
+    ./src/prepare.sh
+    ./src/core.sh
 elif [ "$CALLER" == "post" ]; then
     post
 else
