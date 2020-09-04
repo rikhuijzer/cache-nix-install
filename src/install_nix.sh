@@ -8,6 +8,7 @@ echo ""
 echo "running install_nix.sh"
 echo ""
 
+INPUT_NIX_PATH="nixpkgs=channel:$INPUT_NIX_VERSION"
 function set_paths {
     echo "::add-path::/nix/var/nix/profiles/per-user/runner/profile/bin"
     echo "::add-path::/nix/var/nix/profiles/default/bin"
@@ -18,7 +19,7 @@ function set_paths {
 }
 
 if [ -d "/nix" ]; then
-    echo Nix folder exists. Assuming it was restored from cache.
+    echo "The folder /nix exists; assuming Nix was restored from cache"
     set_paths
     exit 0
 fi
@@ -39,7 +40,6 @@ installer_options=(
   --nix-extra-conf-file /tmp/nix.conf
 )
 
-INPUT_NIX_PATH="nixpkgs=channel:$INPUT_NIX_VERSION"
 if [[ "$INPUT_NIX_PATH" != "" ]]; then
   installer_options+=(--no-channel-add)
 else
