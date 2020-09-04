@@ -22,7 +22,7 @@ function install_via_nix {
     nix-env --install --file "$INPUT_NIX_FILE"
 }
 
-function check_cache {
+function cache_install {
     git clone --depth 1 --branch v2.1.1 https://github.com/actions/cache /tmp/cache
     nodejs /tmp/cache/dist/restore/index.js
     printenv | sort
