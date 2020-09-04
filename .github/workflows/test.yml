@@ -32,3 +32,6 @@ jobs:
 
       - name: Test whether simple.nix is installed
         run: which hello
+
+      - name: Test whether nix-shell is available
+        run: nix-shell -p nix-info --run "nix-info -m"
