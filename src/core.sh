@@ -23,13 +23,7 @@ function install_via_nix {
 }
 
 function cache_install {
-    git clone --depth 1 --branch v2.1.1 https://github.com/actions/cache /tmp/cache
-    cd /tmp/cache/
-    npm install
-    nodejs dist/restore/index.js
     printenv | sort
-    CACHE_HIT=1
-    install_via_nix
 }
 
 CALLER="$1"
