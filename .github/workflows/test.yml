@@ -10,9 +10,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Ensure key to be unique
-        run: date >> test/date.txt
-
       - name: Cache Nix store
         id: cache-nix-store
         uses: actions/cache@v2.1.1
@@ -20,7 +17,7 @@ jobs:
           path: |
             ~/nix/store
             ~/nix/bin
-          key: nix-${{ hashFiles('test') }}
+          key: nix-${{ hashFiles('test/simple.nix') }}-v1
 
       - name: Install via Nix or cache
         uses: ./
