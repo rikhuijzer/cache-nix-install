@@ -24,10 +24,9 @@ CALLER="$1"
 if [ "$CALLER" == "main" ]; then
     install_dependencies
     install_nix
-    printenv | sort
     install_via_nix
 elif [ "$CALLER" == "post" ]; then
-    post
+    echo Came from post
 else
     echo "No argument given"
     exit 1
