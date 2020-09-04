@@ -69,5 +69,8 @@ jobs:
         run: hello
 
       - name: Test whether nix-shell is available
-        run: nix-shell -p nix-info --run "nix-info -m"
+        run: |
+          which hello
+          which nix-shell
+          nix-shell -p nix-info --run "nix-info -m"
 
