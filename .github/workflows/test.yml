@@ -15,8 +15,8 @@ jobs:
         uses: actions/cache@v2.1.1
         with: 
           path: |
-            ~/nix/store
-            ~/nix/bin
+            /nix/store
+            /nix/var/nix/profiles/per-user/runner/profile/bin
           key: nix-${{ hashFiles('test/simple.nix') }}-v2
 
       - name: Install via Nix or cache
