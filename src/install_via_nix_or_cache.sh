@@ -4,13 +4,14 @@ echo ""
 echo "running install_via_nix_or_cache.sh"
 echo ""
 
-NIX_BIN=/nix/var/nix/profiles/default/bin
+NIX_BIN=/nix/var/nix/profiles/per-user/$USER/profile/bin
 NIX_STORE=/nix/store
 
 if [[ "$CACHE_HIT" != 'true' ]]; then
   nix-env --install --file "$INPUTS_NIX_FILE"
   mkdir ~/nix
   which hello
+  ls -ahl $NIX_BIN
   sudo mv $NIX_STORE ~/nix/store
   sudo mv $NIX_BIN ~/nix/bin
 else
