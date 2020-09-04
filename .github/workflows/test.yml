@@ -10,6 +10,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Prepare for cache
+        run: mkdir /nix
+
       - name: Cache Nix store
         id: cache-nix-store
         uses: actions/cache@v2.1.1
@@ -25,4 +28,4 @@ jobs:
           nix_file: 'test/simple.nix'
 
       - name: Test whether simple.nix is installed
-        run: which python
+        run: which hello

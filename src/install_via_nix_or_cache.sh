@@ -9,7 +9,7 @@ NIX_BIN=/nix/var/nix/profiles/per-user/$USER/profile/bin
 
 if [[ "$CACHE_HIT" != 'true' ]]; then
     nix-env --install --file $INPUTS_NIX_FILE
-    sudo chown -R $(id -u):$(id -g) /nix/store
+    sudo chown --verbose --recursive $(id -u):$(id -g) /nix/store
 else
     which hello
 fi
