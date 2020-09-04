@@ -10,8 +10,8 @@ NIX_STORE=/nix/store
 if [[ "$CACHE_HIT" != 'true' ]]; then
   nix-env --install --file "$INPUTS_NIX_FILE"
   mkdir ~/nix
-  mv $NIX_STORE ~/nix/store
-  mv $NIX_BIN ~/nix/bin
+  sudo mv $NIX_STORE ~/nix/store
+  sudo mv $NIX_BIN ~/nix/bin
 else
   sudo mkdir --parents $NIX_STORE
   sudo mkdir --parents $NIX_BIN

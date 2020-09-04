@@ -17,7 +17,7 @@ jobs:
           path: |
             ~/nix/store
             ~/nix/bin
-          key: nix-${{ hashFiles('test/simple.nix') }}-v1
+          key: nix-${{ hashFiles('test/simple.nix') }}-v2
 
       - name: Install via Nix or cache
         uses: ./
