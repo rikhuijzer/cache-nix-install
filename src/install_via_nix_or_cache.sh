@@ -9,11 +9,11 @@ NIX_STORE=/nix/store
 
 if [[ "$CACHE_HIT" != 'true' ]]; then
     nix-env --install --file "$INPUTS_NIX_FILE"
-    mkdir ~/nix
+    mkdir --verbose ~/nix
     which hello
     ls -ahl $NIX_BIN
-    sudo mv $NIX_STORE ~/nix/store
-    sudo mv $NIX_BIN ~/nix/bin
+    sudo mv --verbose $NIX_STORE ~/nix/store
+    sudo mv --verbose $NIX_BIN ~/nix/bin
 else
     sudo mkdir --parents $NIX_STORE
     sudo mkdir --parents $NIX_BIN
