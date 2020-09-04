@@ -6,8 +6,6 @@ function post {
     echo Came from post
 }
 
-sudo find / -iwholename "/etc/profile.d/nix.sh"
-
 CALLER="$1"
 if [ "$CALLER" == "main" ]; then
     printenv
