@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This separate file is necessary since the shell needs a restart after the Nix installation.
+# This separate file allows the shell to restart after the Nix installation.
 
 set -e
 
