@@ -14,5 +14,3 @@ if [[ "$CACHE_HIT" != 'true' ]]; then
 else
     which hello
 fi
-
-printenv | sort
