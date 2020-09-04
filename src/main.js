@@ -3,13 +3,6 @@ const { spawn } = require('child_process');
 
 child = spawn('./src/prepare.sh');
 
-function after(exitCode) {
-    if (parseInt(exitCode) !== 0) {
-        // Handle non-zero exit.
-    }
-    utils.run_script('./src/core.sh main')
-}
-
 child.stdout.setEncoding('utf8');
 child.stdout.on('data', function(data) {
     console.log('stdout: ' + data);
@@ -20,8 +13,8 @@ child.stderr.on('data', function(data) {
     console.log('stderr: ' + data);
 });
 
-child.on('exit', function(code) {
-    if (parseInt(exitCode) !== 0) {
+child.on('exit', function(exitCode) {
+    if (parseInt(extiCode) !== 0) {
         // Handle non-zero exit.
     }
     utils.run_script('./src/core.sh main')
