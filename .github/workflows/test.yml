@@ -12,7 +12,7 @@ jobs:
 
       - name: Prepare for cache
         run: |
-          mkdir --verbose /nix
+          sudo mkdir --verbose /nix
           sudo chown --verbose $(id -u):$(id -g) /nix 
 
       - name: Cache Nix store
