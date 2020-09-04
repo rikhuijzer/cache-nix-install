@@ -13,6 +13,5 @@ inputs:
 # For available options, see https://github.com/actions/runner/blob/main/src/Runner.Worker/action_yaml.json.
 runs:
     using: 'node12'
-    pre: 'src/pre.js'
     main: 'src/main.js'
     post: 'src/post.js'

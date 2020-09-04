@@ -8,7 +8,7 @@ function post {
 
 CALLER="$1"
 if [ "$CALLER" == "main" ]; then
-    printenv
+    ./src/prepare.sh
     ./src/core.sh
 elif [ "$CALLER" == "post" ]; then
     post
