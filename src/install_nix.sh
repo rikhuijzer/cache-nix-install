@@ -8,12 +8,21 @@ echo ""
 echo "running install_nix.sh"
 echo ""
 
+function set_paths {
+    echo "::add-path::/nix/var/nix/profiles/per-user/runner/profile/bin"
+    echo "::add-path::/nix/var/nix/profiles/default/bin"
+
+    if [[ $INPUT_NIX_PATH != "" ]]; then
+      echo "::set-env name=NIX_PATH::${INPUT_NIX_PATH}"
+    fi
+}
+
 if [ -d "/nix" ]; then
     echo Nix folder exists. Assuming it was restored from cache.
+    set_paths
     exit 0
-fi
+else 
 
-# Configure Nix
 add_config() {
   echo "$1" | sudo tee -a /tmp/nix.conf >/dev/null
 }
@@ -51,10 +60,4 @@ if [[ $OSTYPE =~ darwin ]]; then
   sudo launchctl setenv NIX_SSL_CERT_FILE "$cert_file"
 fi
 
-# Set paths
-echo "::add-path::/nix/var/nix/profiles/per-user/runner/profile/bin"
-echo "::add-path::/nix/var/nix/profiles/default/bin"
-
-if [[ $INPUT_NIX_PATH != "" ]]; then
-  echo "::set-env name=NIX_PATH::${INPUT_NIX_PATH}"
-fi
+set_paths
