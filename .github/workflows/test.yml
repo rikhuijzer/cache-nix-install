@@ -32,11 +32,11 @@ jobs:
       - name: Test whether simple.nix is installed
         run: which hello
 
-      - name: Another chmod
-        run: sudo chown --recursive "$USER:" /nix/store
-
       - name: Test whether nix-shell is available
         run: nix-shell -p nix-info --run "nix-info -m"
+
+      - name: Another chmod
+        run: sudo chown --recursive "$USER:" /nix/store
 
   simple-restore:
     needs: simple-save
