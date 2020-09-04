@@ -15,8 +15,8 @@ if [[ "$CACHE_HIT" != 'true' ]]; then
     sudo mv --verbose $NIX_STORE ~/nix/store
     sudo mv --verbose $NIX_BIN ~/nix/bin
 else
-    sudo mkdir --parents $NIX_STORE
-    sudo mkdir --parents $NIX_BIN
-    sudo mv --force ~/nix/store $NIX_STORE
-    sudo mv --force ~/nix/bin $NIX_BIN
+    sudo mkdir --verbose --parents $NIX_STORE
+    sudo mkdir --verbose --parents $NIX_BIN
+    sudo mv --verbose --force ~/nix/store $NIX_STORE
+    sudo mv --verbose --force ~/nix/bin $NIX_BIN
 fi

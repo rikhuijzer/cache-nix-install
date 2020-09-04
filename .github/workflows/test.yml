@@ -25,4 +25,4 @@ jobs:
           nix_file: 'test/simple.nix'
 
       - name: Test whether simple.nix is installed
-        run: hello
+        run: which python

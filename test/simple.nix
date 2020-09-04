@@ -4,5 +4,5 @@ let
   nixpkgs = fetchTarball "https://github.com/NixOS/nixpkgs/archive/${rev}.tar.gz";
   pkgs = import nixpkgs {};
 in with pkgs; [
-  hello
+  python3
 ]
