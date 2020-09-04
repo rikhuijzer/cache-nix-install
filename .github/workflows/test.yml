@@ -3,15 +3,29 @@ name: test
 on: [push, pull_request]
 
 jobs:
-    simple:
-        name: Install and test simple.nix
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v2
-            - name: Install and cache Nix packages 
-              uses: ./
-              with:
-                nix_file: 'test/simple.nix'
-            - name: Test whether simple.nix is installed
-              run: hello
+  simple:
+    name: Install and test simple.nix
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Ensure key to be unique
+        run: date >> test/date.txt
+
+      - name: Cache Nix store
+        id: cache-nix-store
+        uses: actions/cache@v2.2.1
+        with: 
+          path: |
+            /nix/store
+            /nix/bin
+          key: nix-${{ hashFiles('test') }}
+
+      - name: Install and cache Nix packages 
+        uses: ./
+        with:
+          nix_file: 'test/simple.nix'
+
+      - name: Test whether simple.nix is installed
+        run: hello
