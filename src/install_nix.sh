@@ -12,10 +12,6 @@ add_config() {
 add_config "max-jobs = auto"
 # Allow binary caches for runner user
 add_config "trusted-users = root runner"
-# Append extra nix configuration if provided
-if [[ $INPUT_EXTRA_NIX_CONFIG != "" ]]; then
-  add_config "$INPUT_EXTRA_NIX_CONFIG"
-fi
 
 # Nix installer flags
 installer_options=(
@@ -25,7 +21,8 @@ installer_options=(
   --nix-extra-conf-file /tmp/nix.conf
 )
 
-if [[ $INPUT_SKIP_ADDING_NIXPKGS_CHANNEL = "true" || $INPUT_NIX_PATH != "" ]]; then
+INPUT_NIX_PATH="nixpkgs=channel:$INPUT_NIX_VERSION"
+if [[ "$INPUT_NIX_PATH" != "" ]]; then
   installer_options+=(--no-channel-add)
 else
   INPUT_NIX_PATH="/nix/var/nix/profiles/per-user/root/channels"
