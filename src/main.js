@@ -13,15 +13,11 @@ function after(exitCode) {
 child.stdout.setEncoding('utf8');
 child.stdout.on('data', function(data) {
     console.log('stdout: ' + data);
-    data=data.toString();
-    scriptOutput+=data;
 });
 
 child.stderr.setEncoding('utf8');
 child.stderr.on('data', function(data) {
     console.log('stderr: ' + data);
-    data=data.toString();
-    scriptOutput+=data;
 });
 
 child.on('exit', function(code) {
