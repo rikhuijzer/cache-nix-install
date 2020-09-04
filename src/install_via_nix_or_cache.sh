@@ -13,10 +13,10 @@ if [[ "$CACHE_HIT" != 'true' ]]; then
     which hello
     ls -ahl $NIX_BIN
     sudo mv --verbose $NIX_STORE ~/nix/store
-    sudo mv --verbose $NIX_BIN ~/nix/bin
+    sudo cp --force --recursive $NIX_BIN/ ~/nix/bin
 else
     sudo mkdir --verbose --parents $NIX_STORE
     sudo mkdir --verbose --parents $NIX_BIN
     sudo mv --verbose --force ~/nix/store $NIX_STORE
-    sudo mv --verbose --force ~/nix/bin $NIX_BIN
+    sudo cp --force --recursive ~/nix/bin $NIX_BIN
 fi
