@@ -1,6 +1,7 @@
 #!/bin/bash
 
-echo "Installing via Nix or cache"
+echo ""
+echo "running install_via_nix_or_cache.sh"
 echo ""
 
 NIX_BIN=/nix/var/nix/profiles/per-user/runner/profile/bin

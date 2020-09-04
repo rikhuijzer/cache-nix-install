@@ -4,7 +4,8 @@
 
 set -euo pipefail
 
-echo "Installing Nix"
+echo ""
+echo "running intall_nix.sh"
 echo ""
 
 # Configure Nix
