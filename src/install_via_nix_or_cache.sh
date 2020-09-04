@@ -12,6 +12,7 @@ if [[ "$CACHE_HIT" != 'true' ]]; then
   mkdir ~/nix
   which hello
   ls -ahl $NIX_BIN
+  sudo mount -o remount,rw $NIX_STORE
   sudo mv $NIX_STORE ~/nix/store
   sudo mv $NIX_BIN ~/nix/bin
 else
