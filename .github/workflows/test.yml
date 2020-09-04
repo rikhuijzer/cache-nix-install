@@ -3,8 +3,7 @@ name: test
 on: [push, pull_request]
 
 jobs:
-  simple:
-    name: simple
+  simple-save:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -23,7 +22,7 @@ jobs:
             /nix/store
             /nix/var/nix/profiles/per-user/runner/profile/bin
             /run/current-system/sw/bin
-          key: nix-${{ hashFiles('test/simple.nix') }}-v5
+          key: nix-${{ hashFiles('test/simple.nix') }}-${{ github.run_id }}
 
       - name: Install via Nix or cache
         uses: ./
@@ -35,3 +34,36 @@ jobs:
 
       - name: Test whether nix-shell is available
         run: nix-shell -p nix-info --run "nix-info -m"
+
+  simple-restore:
+    needs: simple-save
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Prepare for cache
+        run: |
+          sudo mkdir --verbose /nix
+          sudo chown --verbose $(id -u):$(id -g) /nix 
+
+      - name: Cache Nix store
+        id: cache-nix-store
+        uses: actions/cache@v2.1.1
+        with: 
+          path: |
+            /nix/store
+            /nix/var/nix/profiles/per-user/runner/profile/bin
+            /run/current-system/sw/bin
+          key: nix-${{ hashFiles('test/simple.nix') }}-${{ github.run_id }}
+
+      - name: Install via Nix or cache
+        uses: ./
+        with:
+          nix_file: 'test/simple.nix'
+
+      - name: Test whether simple.nix is installed
+        run: which hello
+
+      - name: Test whether nix-shell is available
+        run: nix-shell -p nix-info --run "nix-info -m"
+
