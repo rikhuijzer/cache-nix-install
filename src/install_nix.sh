@@ -21,6 +21,7 @@ function set_paths {
 if [ -d "/nix" ]; then
     echo "The folder /nix exists; assuming Nix was restored from cache"
     export CACHE_HIT=true
+    export PATH=$PATH:/run/current-system/sw/bin
     set_paths
     exit 0
 fi
