@@ -5,10 +5,10 @@
 set -euo pipefail
 
 echo ""
-echo "running intall_nix.sh"
+echo "running install_nix.sh"
 echo ""
 
-if [ -d "$/nix" ]; then
+if [ -d "/nix" ]; then
     echo Nix folder exists. Assuming it was restored from cache.
     exit 0
 fi
