@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   simple:
-    name: Install and test simple.nix
+    name: simple.nix
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -15,14 +15,14 @@ jobs:
 
       - name: Cache Nix store
         id: cache-nix-store
-        uses: actions/cache@v2.2.1
+        uses: actions/cache@v2.2.0
         with: 
           path: |
             /nix/store
             /nix/bin
           key: nix-${{ hashFiles('test') }}
 
-      - name: Install and cache Nix packages 
+      - name: Install via Nix or cache
         uses: ./
         with:
           nix_file: 'test/simple.nix'
