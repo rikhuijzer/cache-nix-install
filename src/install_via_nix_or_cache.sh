@@ -4,7 +4,7 @@ echo ""
 echo "running install_via_nix_or_cache.sh"
 echo ""
 
-NIX_BIN=/nix/var/nix/profiles/per-user/$USER/profile/bin
+NIX_BIN=/nix/var/nix/profiles/default/bin
 NIX_STORE=/nix/store
 
 if [[ "$CACHE_HIT" != 'true' ]]; then
