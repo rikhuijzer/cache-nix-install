@@ -24,7 +24,7 @@ child.stderr.on('data', function(data) {
     scriptOutput+=data;
 });
 
-firstSpawn.on('exit', function(code) {
+child.on('exit', function(code) {
     if (parseInt(exitCode) !== 0) {
         // Handle non-zero exit.
     }
