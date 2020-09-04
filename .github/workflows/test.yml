@@ -37,6 +37,7 @@ jobs:
 
   simple-restore:
     needs: simple-save
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
