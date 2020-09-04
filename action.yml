@@ -13,6 +13,13 @@ inputs:
 # For available options, see 
 # https://github.com/actions/runner/blob/main/src/Runner.Worker/action_yaml.json.
 runs:
-    using: 'node12'
-    main: 'src/main.js'
-    post: 'src/post.js'
+    using: 'composite'
+    steps: 
+        - name: Install Nix package manager
+          run: ./src/install_nix.sh
+          shell: bash
+        - name: Install via Nix
+          run: ./src/install_via_nix_or_cache.sh
+          shell: bash
+          env:
+            CACHE_HIT: ${{ steps.cache-nix-store.outputs.cache-hit }}

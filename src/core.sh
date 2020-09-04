@@ -23,13 +23,17 @@ function install_via_nix {
 }
 
 function cache_install {
+    # https://artifactcache.actions.githubusercontent.com/.../
+    # Restore is defined at https://github.com/actions/toolkit
+    CACHE_URL="$ACTIONS_CACHE_URL"
+    curl "$ACTIONS_CACHE_URL/test"
     printenv | sort
 }
 
 CALLER="$1"
 if [ "$CALLER" == "main" ]; then
-    install_dependencies
-    install_nix
+    # install_dependencies
+    # install_nix
     cache_install
 elif [ "$CALLER" == "post" ]; then
     echo Came from post
