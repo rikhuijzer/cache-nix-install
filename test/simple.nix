@@ -5,5 +5,4 @@ let
   pkgs = import nixpkgs {};
 in with pkgs; [
   hello
-  python3
 ]
