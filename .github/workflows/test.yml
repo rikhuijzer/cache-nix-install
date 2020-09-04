@@ -23,7 +23,7 @@ jobs:
             /nix/store
             /nix/var/nix/profiles/per-user/runner/profile/bin
             /run/current-system/sw/bin
-          key: nix-${{ hashFiles('test/simple.nix') }}-v3
+          key: nix-${{ hashFiles('test/simple.nix') }}-v5
 
       - name: Install via Nix or cache
         uses: ./
