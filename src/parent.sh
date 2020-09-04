@@ -10,8 +10,8 @@ sudo find / -iwholename "/etc/profile.d/nix.sh"
 
 CALLER="$1"
 if [ "$CALLER" == "main" ]; then
-    ./src/prepare.sh
     printenv
+    ./src/core.sh
 elif [ "$CALLER" == "post" ]; then
     post
 else
