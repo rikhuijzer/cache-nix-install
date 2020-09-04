@@ -21,7 +21,7 @@ if [ -d "/nix" ]; then
     echo Nix folder exists. Assuming it was restored from cache.
     set_paths
     exit 0
-else 
+fi
 
 add_config() {
   echo "$1" | sudo tee -a /tmp/nix.conf >/dev/null
