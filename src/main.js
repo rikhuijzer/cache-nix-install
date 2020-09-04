@@ -14,7 +14,7 @@ child.stderr.on('data', function(data) {
 });
 
 child.on('exit', function(exitCode) {
-    if (parseInt(extiCode) !== 0) {
+    if (parseInt(exitCode) !== 0) {
         // Handle non-zero exit.
     }
     utils.run_script('./src/core.sh main')
