@@ -13,8 +13,10 @@ if [[ "$CACHE_HIT" != 'true' ]]; then
     echo ""
     ls -ahl $NIX_BIN
     echo ""
+    which python3
+    which hello
     sudo mv --verbose $NIX_STORE ~/nix/store
-    sudo cp --force --recursive $NIX_BIN/ ~/nix/bin
+    sudo mv --verbose $NIX_BIN ~/nix/bin
 else
     sudo mkdir --verbose --parents $NIX_STORE
     sudo mkdir --verbose --parents $NIX_BIN
