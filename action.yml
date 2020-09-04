@@ -25,3 +25,4 @@ runs:
           shell: bash
           env:
             CACHE_HIT: ${{ steps.cache-nix-store.outputs.cache-hit }}
+            INPUTS_NIX_FILE: ${{ inputs.nix_file }}

@@ -4,6 +4,9 @@
 
 set -euo pipefail
 
+echo "Installing Nix"
+echo ""
+
 # Configure Nix
 add_config() {
   echo "$1" | sudo tee -a /tmp/nix.conf >/dev/null
